@@ -1,8 +1,8 @@
-package janken;
+package janken.simple;
 
 import java.util.Random;
 
-public class Janken_Simple2 {
+public class Janken_Simple {
 	// じゃんけんの手を表す定数
 	final static int STONE = 0; // グー
 	final static int SCISSORS = 1; // チョキ

@@ -1,6 +1,6 @@
-package janken;
+package janken.object;
 
-public class Janken_Simple {
+public class Janken_Object {
 	public static void main(String[] args) {
 		/*
 		 * 改良点
