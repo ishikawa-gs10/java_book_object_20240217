@@ -13,7 +13,7 @@ public class Judge {
 	 * @param player1 判定対象プレイヤー2
 	 */
 	public void startJanken(Player player1, Player player2) {
-		System.out.println("じゃんけん開始");
+		System.out.println("【じゃんけん開始】\n");
 
 		for (int i = 0; i < GAME_NUM; i++) {
 			System.out.println((i + 1) + "回目の勝負");
@@ -23,17 +23,17 @@ public class Judge {
 
 			if (winner != null) {
 				// 勝者を表示する
-				System.out.println("\n" + winner.getName() + "が勝ちました！\n");
+				System.out.println(winner.getName() + "が勝ちました！\n");
 
 				// 勝ったプレイヤーへ結果を伝える
 				winner.notifyResult(true);
 			} else {
 				// 引き分けの場合
-				System.out.println("\n引き分けです！\n");
+				System.out.println("引き分けです！\n");
 			}
 		}
 
-		System.out.println("【じゃんけん終了】\n");
+		System.out.println("【じゃんけん終了】");
 
 		// 最終的な勝者を判定する
 		Player finalWinner = judgeFinalWinner(player1, player2);
@@ -68,7 +68,7 @@ public class Judge {
 		printHand(player1Hand);
 		System.out.print(" vs. ");
 		printHand(player2Hand);
-		System.out.println("\n");
+		System.out.print("\n");
 		
 		if ((player1Hand + 1) % 3 == player2Hand) {
 			// プレイヤー1が勝つ場合
@@ -118,13 +118,13 @@ public class Judge {
 	private void printHand(int hand) {
 		switch (hand) {
 		case 0:
-			System.out.println("グー");
+			System.out.print("グー");
 			break;
 		case 1:
-			System.out.println("チョキ");
+			System.out.print("チョキ");
 			break;
 		case 2:
-			System.out.println("パー");
+			System.out.print("パー");
 			break;
 		default:
 			break;
