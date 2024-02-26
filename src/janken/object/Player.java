@@ -1,7 +1,5 @@
 package janken.object;
 
-import java.util.Random;
-
 /*
  * じゃんけんのプレイヤーを表すクラス
  */
@@ -10,30 +8,41 @@ public class Player {
 	final static int STONE = 0; // グー
 	final static int SCISSORS = 1; // チョキ
 	final static int PAPER = 2; // パー
-	static int[] janken = { STONE, SCISSORS, PAPER };
+	final static int[] jankenList = { STONE, SCISSORS, PAPER };
 	
 	// フィールド
 	private String name;	// 名前
 	private int winCount = 0;	// プレイヤーの勝った回数
+	
+	// 与えられた戦略
+	private Tactics tactics;
 	
 	// コンストラクタ
 	public Player(String name) {
 		this.name = name;
 	}
 	
+	/**
+	 * プレイヤーに戦略を渡す
+	 * 
+	 * @param tactics 戦略
+	 */
+	public void setTactics(Tactics tactics) {
+		this.tactics = tactics;
+	}
 	
-	/*
+	/**
 	 * じゃんけんの手を出す
 	 * 
 	 * @return じゃんけんの手
 	 */
 	public int showHand() {
-		Random rand = new Random();
+		int hand = this.tactics.readTactics();
 		
-		return janken[rand.nextInt(janken.length)];
+		return hand;
 	}
 	
-	/*
+	/**
 	 * 審判から勝敗を聞く
 	 * 
 	 * @param result true:勝ち, false:負け
@@ -45,7 +54,7 @@ public class Player {
 		}
 	}
 	
-	/*
+	/**
 	 * 自分の勝った回数を答える
 	 * 
 	 * @return 勝った回数
@@ -54,7 +63,7 @@ public class Player {
 		return this.winCount;
 	}
 
-	/*
+	/**
 	 * 自分の名前を答える
 	 * 
 	 * @return 名前

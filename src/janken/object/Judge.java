@@ -1,12 +1,12 @@
 package janken.object;
 
-/*
+/**
  * じゃんけんの審判を表すクラス
  */
 public class Judge {
 	final int GAME_NUM = 3; // じゃんけんの勝負する回数
 
-	/*
+	/**
 	 * じゃんけんを開始する
 	 * 
 	 * @param player1 判定対象プレイヤー1
@@ -48,7 +48,7 @@ public class Judge {
 		}
 	}
 
-	/*
+	/**
 	 * 「じゃんけんぽん！」と声をかけ、プレイヤーの手を見て、どちらが勝ちかを判定する。
 	 * 
 	 * @param player1 判定対象プレイヤー1
@@ -82,7 +82,7 @@ public class Judge {
 		return winner;
 	}
 	
-	/*
+	/**
 	 * 最終的な勝者を判定する
 	 * 
 	 * @param player1 判定対象プレイヤー1
@@ -110,24 +110,13 @@ public class Judge {
 		return winner;
 	}
 	
-	/*
+	/**
 	 * じゃんけんの手を表示する
 	 * 
 	 * @param hand じゃんけんの手
 	 */
 	private void printHand(int hand) {
-		switch (hand) {
-		case 0:
-			System.out.print("グー");
-			break;
-		case 1:
-			System.out.print("チョキ");
-			break;
-		case 2:
-			System.out.print("パー");
-			break;
-		default:
-			break;
-		}
+		String[] jankenList = { "グー", "チョキ", "パー" };
+		System.out.print(jankenList[hand]);
 	}
 }
